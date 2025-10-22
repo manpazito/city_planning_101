@@ -6,6 +6,7 @@ This is where I'm storing my lab materials. If you are going to save this to com
 
 ### 1. You need to add your `Assignment 2` sumission file. 
 This should follow the format of: _[name]_[8-digit-num]_A2.csv_
+Add that file into the data file.
 
 ### 2. You need to add your `CensusAPIKey.txt` file.
 In the codebase I call API keys as a .txt file. Your .txt file should contain **your own** API Key for the census. Inside the `censusAPIKey.txt` it should look like this: [big long scramble of letters & numbers, no periods, no quotation marks]
