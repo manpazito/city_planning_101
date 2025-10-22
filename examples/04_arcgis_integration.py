@@ -11,9 +11,16 @@ Note: This example uses anonymous access. For full functionality,
 you would need an ArcGIS Online account.
 """
 
-from arcgis.gis import GIS
-from arcgis.geocoding import geocode
-from arcgis.geometry import Point
+try:
+    from arcgis.gis import GIS
+    from arcgis.geocoding import geocode
+    from arcgis.geometry import Point
+    ARCGIS_AVAILABLE = True
+except ImportError:
+    ARCGIS_AVAILABLE = False
+    print("Note: arcgis package not installed. Some features will be simulated.")
+    print("To install: pip install arcgis\n")
+
 import pandas as pd
 
 
@@ -24,6 +31,10 @@ def connect_to_arcgis():
     Returns:
         GIS object for ArcGIS Online connection
     """
+    if not ARCGIS_AVAILABLE:
+        print("ArcGIS package not available. Skipping connection.")
+        return None
+    
     print("Connecting to ArcGIS Online...")
     
     # Connect anonymously (no login required for public data)
@@ -46,6 +57,12 @@ def search_census_layers(gis):
     print("\n" + "=" * 60)
     print("Searching for Census Data Layers")
     print("=" * 60)
+    
+    if not ARCGIS_AVAILABLE or gis is None:
+        print("\nArcGIS functionality not available.")
+        print("When arcgis is installed, you can search for census data layers,")
+        print("demographic data, and other spatial datasets from ArcGIS Online.")
+        return []
     
     # Search for census tract data
     search_results = gis.content.search(
@@ -87,6 +104,14 @@ def geocode_addresses_example(gis):
         "Space Needle, Seattle, WA",
         "Willis Tower, Chicago, IL"
     ]
+    
+    if not ARCGIS_AVAILABLE or gis is None:
+        print("\nArcGIS functionality not available.")
+        print("When arcgis is installed, you can geocode addresses to coordinates:")
+        print("\nExample addresses that could be geocoded:")
+        for addr in addresses:
+            print(f"  - {addr}")
+        return pd.DataFrame()
     
     results = []
     
@@ -132,6 +157,14 @@ def explore_feature_layer_example(gis):
     print("\n" + "=" * 60)
     print("Feature Layer Exploration")
     print("=" * 60)
+    
+    if not ARCGIS_AVAILABLE or gis is None:
+        print("\nArcGIS functionality not available.")
+        print("When arcgis is installed, you can explore feature layers:")
+        print("  - Query spatial and attribute data")
+        print("  - Access demographic and census data")
+        print("  - Perform spatial analysis")
+        return None
     
     try:
         # Search for USA demographic data
