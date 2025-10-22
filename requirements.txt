@@ -9,9 +9,10 @@ seaborn>=0.12.0
 # Census data access
 census>=0.8.19
 
-# ArcGIS Python API
-arcgis>=2.1.0
-
 # Additional utilities
 requests>=2.28.0
 python-dotenv>=0.21.0
+
+# Optional: ArcGIS Python API (large package, may require additional dependencies)
+# Uncomment the line below if you plan to use ArcGIS features
+# arcgis>=2.1.0
