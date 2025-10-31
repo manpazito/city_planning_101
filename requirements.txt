@@ -12,3 +12,4 @@ us
 rasterio
 rasterstats
 contextily
+thinkpython
