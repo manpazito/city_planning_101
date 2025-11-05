@@ -1,3 +1,15 @@
+# Ignore API keys
 censusAPIKey.txt
-data/manuel_1809266_A2.csv
-in-class/OAK_311.csv
+
+# Ignore all cache folders
+**/cache/
+
+# Ignore data folders except for labs/data
+**/data/
+!labs/data/
+
+# Ignore CSV and GeoJSON files in in-class folder
+in-class/*.csv
+in-class/*.geojson
+in-class/*.png
+in-class/*.zip
